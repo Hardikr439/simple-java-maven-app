@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.9.9' // Ensure this matches the name in Global Tool Configuration
+    }
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                bat 'mvn -B -DskipTests clean package' 
+                bat 'mvn clean package'
             }
         }
     }
